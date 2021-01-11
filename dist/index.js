@@ -44,10 +44,10 @@ async function run() {
       options.format = 'markdown'
       options.message = `
 event: *${github.context.eventName}*
-repo: [${github.repository}](https://github.com/${github.repository})
+repo: [${github.context.payload.repository.full_name}](${github.context.payload.repository.url})
 commit: [${github.context.sha}](https://github.com/${github.repository}/commit/${github.context.sha})
 actor: [${github.context.actor}](https://github.com/${github.context.actor})
-pusher: [${github.context.payload.pusher.name} < ${github.context.payload.pusher.email} >](https://github.com/${github.context.payload.pusher.name})
+pusher: [${github.context.payload.pusher.name} <${github.context.payload.pusher.email}>](https://github.com/${github.context.payload.pusher.name})
 sender: [${github.context.payload.sender.login}](${github.context.payload.sender.html_url})
 author: [${github.context.payload.head_commit.author.name}](https://github.com/${github.context.payload.head_commit.author.username})
 committer: [${github.context.payload.head_commit.committer.name}](https://github.com/${github.context.payload.head_commit.committer.username})
