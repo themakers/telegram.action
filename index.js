@@ -38,6 +38,8 @@ async function run() {
         break
     }
 
+    options.message = options.message.replace(/(\[[^\][]*]\([^()]*\))|[-.+?^$[\](){}\\]/g, (x, y) => y ? y : '\\' + x)
+
     await sendMessage(options.token, options.to, options.message, format)
 
     core.info(`Message successfully sent`)
