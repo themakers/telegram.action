@@ -2,6 +2,7 @@ const core = require('@actions/core')
 const github = require('@actions/github')
 const tgbot = require('node-telegram-bot-api')
 
+// https://docs.github.com/en/free-pro-team@latest/actions/reference/context-and-expression-syntax-for-github-actions
 // https://docs.github.com/en/free-pro-team@latest/actions/creating-actions/creating-a-javascript-action
 // https://github.com/yagop/node-telegram-bot-api/blob/master/doc/api.md
 // https://core.telegram.org/bots/api#sendmessage

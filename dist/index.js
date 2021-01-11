@@ -9,6 +9,7 @@ const core = __webpack_require__(2186)
 const github = __webpack_require__(5438)
 const tgbot = __webpack_require__(633)
 
+// https://docs.github.com/en/free-pro-team@latest/actions/reference/context-and-expression-syntax-for-github-actions
 // https://docs.github.com/en/free-pro-team@latest/actions/creating-actions/creating-a-javascript-action
 // https://github.com/yagop/node-telegram-bot-api/blob/master/doc/api.md
 // https://core.telegram.org/bots/api#sendmessage
