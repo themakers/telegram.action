@@ -1,0 +1,26 @@
+name: 'telegram-message'
+description: 'Action to send a Telegram message'
+inputs:
+  token:
+    description: 'bot token'
+    required: true
+  to:
+    description: 'chat id'
+    required: true
+  message:
+    description: 'message to send'
+    required: true
+  format:
+    description: 'message format (plain / markdown / html)'
+    required: false
+    default: 'markdown'
+  disable_web_page_preview:
+    description: 'disable_web_page_preview'
+    required: false
+    default: false
+#outputs:
+#  time:
+#    description: 'The message to output'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
