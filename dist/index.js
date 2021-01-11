@@ -45,6 +45,13 @@ async function run() {
         break
     }
 
+    // options.message = encodeURIComponent(options.message)
+    options.message = options.message
+      .replace(".", "\\.")
+      .replace("!", "\\!")
+
+    core.info(`Sending message:\n\n${options.message}\n\n\n`)
+
     await sendMessage(options.token, options.to, options.message, format)
 
     core.info(`Message successfully sent`)

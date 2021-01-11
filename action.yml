@@ -9,7 +9,7 @@ inputs:
     required: true
   message:
     description: 'message to send'
-    required: true
+    required: false
   format:
     description: 'message format (plain / markdown / html)'
     required: false
