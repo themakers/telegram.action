@@ -43,6 +43,9 @@ async function run() {
       .replace(".", "\\.")
       .replace("!", "\\!")
 
+    core.info(`Sending message:\n\n${options.message}\n\n\n`)
+
+
     await sendMessage(options.token, options.to, options.message, format)
 
     core.info(`Message successfully sent`)
