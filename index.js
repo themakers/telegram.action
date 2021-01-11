@@ -1,6 +1,7 @@
 const core = require('@actions/core')
 const github = require('@actions/github')
 const tgbot = require('node-telegram-bot-api')
+const marked = require('marked')
 
 // https://docs.github.com/en/free-pro-team@latest/actions/reference/context-and-expression-syntax-for-github-actions
 // https://docs.github.com/en/free-pro-team@latest/actions/creating-actions/creating-a-javascript-action
@@ -47,7 +48,7 @@ committer: [${github.context.payload.head_commit.committer.name} <${github.conte
       `
     }
 
-    const escapeMD = ['_', '*', '[', ']', '(', ')', '~', '`', '>', '#', '+', '-', '=', '|', '{', '}', '.', '!']
+    // const escapeMD = ['_', '*', '[', ']', '(', ')', '~', '`', '>', '#', '+', '-', '=', '|', '{', '}', '.', '!']
 
 
     let format
@@ -55,9 +56,12 @@ committer: [${github.context.payload.head_commit.committer.name} <${github.conte
       case 'markdown':
         format = 'MarkdownV2'
 
-        escapeMD.forEach((ch) => {
-          options.message = options.message.split(ch).join(`\\${ch}`)
-        })
+        // escapeMD.forEach((ch) => {
+        //   options.message = options.message.split(ch).join(`\\${ch}`)
+        // })
+
+        format = 'HTML'
+        options.message = marked(options.message)
 
         break
       case 'html':
