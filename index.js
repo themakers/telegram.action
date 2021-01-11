@@ -38,7 +38,7 @@ async function run() {
         break
     }
 
-    options.message = options.message.replace(/(\[[^\][]*]\([^()]*\))|[-.+?^$[\](){}\\]/g, (x, y) => y ? y : '\\' + x)
+    options.message = encodeURIComponent(options.message)
 
     await sendMessage(options.token, options.to, options.message, format)
 
