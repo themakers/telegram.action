@@ -35,10 +35,23 @@ async function run() {
 
     core.info(`github: ${JSON.stringify(github)}`)
 
+
+    if (!options.message) {
+      options.format = 'markdown'
+      options.message = ``
+    }
+
+    const escapeMD = ['_', '*', '[', ']', '(', ')', '~', '`', '>', '#', '+', '-', '=', '|', '{', '}', '.', '!']
+
     let format
     switch (options.format) {
       case 'markdown':
         format = 'MarkdownV2'
+
+        escapeMD.forEach((ch) => {
+          options.message = options.message.split(ch).join(`\\${ch}`)
+        })
+
         break
       case 'html':
         format = 'HTML'
@@ -47,13 +60,6 @@ async function run() {
 
     // options.message = encodeURIComponent(options.message)
 
-    if (!options.message) {
-      options.message = ``
-    }
-
-    options.message = options.message
-      .split(".").join("\\.")
-      .split("!").join("\\!")
 
     core.info(`Sending message:\n\n${options.message}\n\n\n`)
 
