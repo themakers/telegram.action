@@ -14,9 +14,11 @@ const tgbot = __webpack_require__(633)
 // https://github.com/yagop/node-telegram-bot-api/blob/master/doc/api.md
 // https://core.telegram.org/bots/api#sendmessage
 
-async function sendMessage(token, to, message, format) {
+async function sendMessage(token, to, message, format, disable_web_page_preview) {
   const bot = new tgbot(token, {})
-  const options = {}
+  const options = {
+    disable_web_page_preview,
+  }
   if (format) {
     options.parse_mode = format
   }
@@ -31,7 +33,8 @@ async function run() {
       token: core.getInput('token'),
       to: core.getInput('to'),
       message: core.getInput('message'),
-      format: core.getInput('format')
+      format: core.getInput('format'),
+      disable_web_page_preview: core.getInput('disable_web_page_preview')
     }
 
     core.info(`github: ${JSON.stringify(github)}`)
@@ -62,9 +65,9 @@ async function run() {
     // options.message = encodeURIComponent(options.message)
 
 
-    core.info(`Sending message:\n\n${options.message}\n\n\n`)
+    core.info(`Sending message: ${format}\n\n${options.message}\n\n\n`)
 
-    await sendMessage(options.token, options.to, options.message, format)
+    await sendMessage(options.token, options.to, options.message, format, options.disable_web_page_preview)
 
     core.info(`Message successfully sent`)
 
