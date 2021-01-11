@@ -49,13 +49,12 @@ commit: [${github.context.sha}](https://github.com/${github.repository}/commit/$
 actor: [${github.context.actor}](https://github.com/${github.context.actor})
 pusher: [${github.context.payload.pusher.name} <${github.context.payload.pusher.email}>](https://github.com/${github.context.payload.pusher.name})
 sender: [${github.context.payload.sender.login}](${github.context.payload.sender.html_url})
-author: [${github.context.payload.head_commit.author.name}](https://github.com/${github.context.payload.head_commit.author.username})
-committer: [${github.context.payload.head_commit.committer.name}](https://github.com/${github.context.payload.head_commit.committer.username})
+author: [${github.context.payload.head_commit.author.name} <${github.context.payload.head_commit.author.email}>](https://github.com/${github.context.payload.head_commit.author.username})
+committer: [${github.context.payload.head_commit.committer.name} <${github.context.payload.head_commit.committer.email}>](https://github.com/${github.context.payload.head_commit.committer.username})
       `
     }
 
     const escapeMD = ['_', '*', '[', ']', '(', ')', '~', '`', '>', '#', '+', '-', '=', '|', '{', '}', '.', '!']
-
 
 
     let format
