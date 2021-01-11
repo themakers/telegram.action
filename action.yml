@@ -17,7 +17,7 @@ inputs:
   disable_web_page_preview:
     description: 'disable_web_page_preview'
     required: false
-    default: false
+    default: true
 #outputs:
 #  time:
 #    description: 'The message to output'
