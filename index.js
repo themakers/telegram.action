@@ -39,9 +39,14 @@ async function run() {
     }
 
     // options.message = encodeURIComponent(options.message)
+
+    if (!options.message) {
+      options.message = ``
+    }
+
     options.message = options.message
-      .replaceAll(".", "\\.")
-      .replaceAll("!", "\\!")
+      .split(".").join("\\.")
+      .split("!").join("\\!")
 
     core.info(`Sending message:\n\n${options.message}\n\n\n`)
 
