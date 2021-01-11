@@ -47,8 +47,8 @@ async function run() {
 
     // options.message = encodeURIComponent(options.message)
     options.message = options.message
-      .replace(".", "\\.")
-      .replace("!", "\\!")
+      .replaceAll(".", "\\.")
+      .replaceAll("!", "\\!")
 
     core.info(`Sending message:\n\n${options.message}\n\n\n`)
 
