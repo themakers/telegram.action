@@ -20,6 +20,9 @@ To obtain your telegram room ID you could use this command:
 curl https://api.telegram.org/bot${TELEGRAM_TOKEN}/getUpdates | python -m json.tool
 ```
 
+## TODO
+- [ ] `TODO:` Allow comma-separated list of rooms in `secrets.TELEGRAM_TO`
+
 `TODO`
 
 <p align="center">
