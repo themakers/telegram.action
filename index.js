@@ -36,8 +36,7 @@ async function run() {
     if (!options.message) {
       options.format = 'markdown'
       options.message = `
-event: *${github.context.eventName}*
-repo: [${github.context.payload.repository.full_name}](${github.context.payload.repository.url})
+[${github.context.actor}](https://github.com/${github.context.actor}): *${github.context.eventName}* >> [${github.context.payload.repository.full_name}](${github.context.payload.repository.url})
 commit: [${github.context.sha}](https://github.com/${github.repository}/commit/${github.context.sha})
 actor: [${github.context.actor}](https://github.com/${github.context.actor})
 pusher: [${github.context.payload.pusher.name} <${github.context.payload.pusher.email}>](https://github.com/${github.context.payload.pusher.name})
