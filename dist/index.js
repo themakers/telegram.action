@@ -45,6 +45,9 @@ async function run() {
       options.message = `
 [${github.context.actor}](https://github.com/${github.context.actor}): *${github.context.eventName}* >> [${github.context.payload.repository.full_name}](${github.context.payload.repository.url})
 commit: [${github.context.sha}](https://github.com/${github.repository}/commit/${github.context.sha})
+\`\`\`
+${github.context.payload.head_commit.message}
+\`\`\`
 actor: [${github.context.actor}](https://github.com/${github.context.actor})
 pusher: [${github.context.payload.pusher.name} <${github.context.payload.pusher.email}>](https://github.com/${github.context.payload.pusher.name})
 sender: [${github.context.payload.sender.login}](${github.context.payload.sender.html_url})
@@ -54,8 +57,8 @@ committer: [${github.context.payload.head_commit.committer.name} <${github.conte
     }
 
     const escapeMD = [
-      // '_', '*','~', '[', ']', '(', ')',
-      '`', '>', '#', '+', '-', '=', '|', '{', '}', '.', '!']
+      // '_', '*','~', '[', ']', '(', ')', '`',
+      '>', '#', '+', '-', '=', '|', '{', '}', '.', '!']
 
 
     let format
