@@ -30,7 +30,7 @@
     "node-telegram-bot-api": "^0.51.0"
   },
   "devDependencies": {
-    "@vercel/ncc": "^0.25.1",
+    "@vercel/ncc": "^0.33.4",
     "eslint": "^7.4.0",
     "jest": "^26.1.0"
   }
